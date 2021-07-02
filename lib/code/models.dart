@@ -5,16 +5,16 @@ User dummy = User(name: '', email: '', password: '', number: 0, image: '');
 
 class UserInfo with ChangeNotifier {
   String token = '';
-  User user = dummy;
+  // User user = dummy;
   updateToken(String value) {
     token = value;
     notifyListeners();
   }
 
-  updateUser(User value) {
-    user = value;
-    notifyListeners();
-  }
+  // updateUser(User value) {
+  //   user = value;
+  //   notifyListeners();
+  // }
 }
 
 class User {

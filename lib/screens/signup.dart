@@ -7,6 +7,7 @@ import 'package:appentus/code/models.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hive/hive.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
@@ -68,7 +69,9 @@ class _SignupPageState extends State<SignupPage> {
       if (loggedInUser.id != null) {
         String token = loggedInUser.id.toString();
         userInfo.updateToken(token);
-        userInfo.updateUser(loggedInUser);
+        var box = await Hive.openBox('myBox');
+        box.put('token', token);
+        // userInfo.updateUser(loggedInUser);
         return;
       }
       openDialog('Error', 'The password was incorrect. Please try again.');

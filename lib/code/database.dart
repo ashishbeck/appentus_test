@@ -42,6 +42,20 @@ class UsersDatabase {
     return result.map((json) => User.fromJson(json)).toList();
   }
 
+  Future<User> getUser(int id) async {
+    final db = await instance.database;
+    final map = await db.query(
+      userTable,
+      columns: UserFields.values,
+      where: '${UserFields.id} = ?',
+      whereArgs: [id]
+    );
+    if (map.isNotEmpty) {
+      return User.fromJson(map.first);
+    }
+    throw Exception('User does not exist');
+  }
+
   Future<User> checkUser(String email, String password) async {
     final db = await instance.database;
     final map = await db.query(
@@ -54,8 +68,7 @@ class UsersDatabase {
       User found = User.fromJson(map.first);
       if (found.password == password) return found;
       return dummy;
-    } else {
-      throw Exception('User does not exist');
     }
+    throw Exception('User does not exist');
   }
 }
