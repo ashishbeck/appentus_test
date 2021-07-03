@@ -1,16 +1,6 @@
-# appentus
+# Appentus
 
-A new Flutter project.
+A project I made for a practical task as a part of the interview process for Appentus Technologies.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Core Functionality
+This app has a local SQL database which acts like a user authentication system that exists in a typical server. New accounts can be created and signed in through this system. The signed in user is persisted by storing the token returned by the database in the local applications directory in a Hive database. The home screen of the app shows the Google Maps view with a marker on the current location of the user. A second screen shows an assortment of paintings/photos by some authors in a grid like fashion

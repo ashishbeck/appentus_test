@@ -171,43 +171,46 @@ class _SignupPageState extends State<SignupPage> {
           )
         : SizedBox.shrink();
 
-    return Scaffold(
-      body: SafeArea(
-        child: Form(
-          key: _formKey,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ListView(
-              shrinkWrap: true,
-              // mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
-                  child: Center(
-                    child: FittedBox(
-                      child: Text(
-                        "Appentus Practical Task",
-                        style: appNameStyle,
-                        textAlign: TextAlign.center,
+    return Theme(
+      data: Theme.of(context).copyWith(appBarTheme: AppBarTheme(brightness: Brightness.light)),
+      child: Scaffold(
+        body: SafeArea(
+          child: Form(
+            key: _formKey,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ListView(
+                shrinkWrap: true,
+                // mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: Center(
+                      child: FittedBox(
+                        child: Text(
+                          "Appentus Practical Task",
+                          style: appNameStyle,
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  child: textFields(),
-                ),
-                imagePickerWidget(),
-                ElevatedButton(
-                    onPressed: () => isSignupScreen ? signup() : login(userInfo), child: Text(isSignupScreen ? 'Signup' : 'Login')),
-                ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        isSignupScreen ? pageType = PageType.login : pageType = PageType.signup;
-                      });
-                    },
-                    child: Text(isSignupScreen ? 'Have an account? Go to Login' : 'Click here to signup'))
-              ],
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    child: textFields(),
+                  ),
+                  imagePickerWidget(),
+                  ElevatedButton(
+                      onPressed: () => isSignupScreen ? signup() : login(userInfo), child: Text(isSignupScreen ? 'Signup' : 'Login')),
+                  ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          isSignupScreen ? pageType = PageType.login : pageType = PageType.signup;
+                        });
+                      },
+                      child: Text(isSignupScreen ? 'Have an account? Go to Login' : 'Click here to signup'))
+                ],
+              ),
             ),
           ),
         ),

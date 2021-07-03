@@ -16,12 +16,14 @@ class _RootPageState extends State<RootPage> {
   bool isLoading = true;
 
   checkForLogin(UserInfo userInfo) async {
-    var box = await Hive.openBox('myBox');
-    var token = box.get('token');
-    if (token != null) userInfo.updateToken(token.toString());
-    setState(() {
-      isLoading = false;
-    });
+    if (isLoading) {
+      var box = await Hive.openBox('myBox');
+      var token = box.get('token');
+      if (token != null) userInfo.updateToken(token.toString());
+      setState(() {
+        isLoading = false;
+      });
+    }
   }
 
   @override

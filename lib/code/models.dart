@@ -28,28 +28,25 @@ class User {
   const User({this.id, required this.name, required this.email, required this.password, required this.number, required this.image});
 
   toJson() => {
-    UserFields.id: id,
-    UserFields.name: name,
-    UserFields.email: email,
-    UserFields.password: password,
-    UserFields.number: number,
-    UserFields.image: image
-  };
+        UserFields.id: id,
+        UserFields.name: name,
+        UserFields.email: email,
+        UserFields.password: password,
+        UserFields.number: number,
+        UserFields.image: image
+      };
 
   static User fromJson(Map json) => User(
-    id: json[UserFields.id] as int?,
-    name: json[UserFields.name] as String,
-    email: json[UserFields.email] as String,
-    password: json[UserFields.password] as String,
-    number: json[UserFields.number] as int,
-    image: json[UserFields.image] as String
-  );
+      id: json[UserFields.id] as int?,
+      name: json[UserFields.name] as String,
+      email: json[UserFields.email] as String,
+      password: json[UserFields.password] as String,
+      number: json[UserFields.number] as int,
+      image: json[UserFields.image] as String);
 }
 
 class UserFields {
-  static final List<String> values = [
-    id, name, email, password, number, image
-  ];
+  static final List<String> values = [id, name, email, password, number, image];
 
   static final String id = "_id";
   static final String name = "name";
@@ -57,4 +54,11 @@ class UserFields {
   static final String password = "password";
   static final String number = "number";
   static final String image = "image";
+}
+
+class Painting {
+  final String author;
+  final String url;
+
+  const Painting({required this.author, required this.url});
 }

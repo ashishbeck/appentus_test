@@ -41,5 +41,11 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+    <string>To pick images for the demo</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>To pick images for the demo</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+    <string>To geo-locate for the demo</string>
 </dict>
 </plist>
