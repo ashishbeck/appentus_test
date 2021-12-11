@@ -15,7 +15,7 @@ void main() async {
   var path = await getApplicationDocumentsDirectory();
   Hive..init(path.path);
   // SystemChrome.setEnabledSystemUIOverlays(overlays)
-  runApp(MyApp()); //test
+  runApp(MyApp()); //test 2
 }
 
 class MyApp extends StatelessWidget {
